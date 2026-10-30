@@ -24,10 +24,10 @@ public final class EpubDecryptMain {
 
     public static void main(String[] args) {
         args=new String[4];
-        args[0]="/Users/fuchunming/1111/a4ce98a1a68647db80dfd18694449721.epub";//input
-        args[1]="/Users/fuchunming/1111/out.epub";//output
-        args[2]="dc891b08f0344a0b";//key
-        args[3]="11fbce122f994c93";//iv
+        args[0]="";//input
+        args[1]="";//output
+        args[2]="";//key
+        args[3]="";//iv
 
 
 

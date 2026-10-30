@@ -10,6 +10,8 @@ public final class ResponseDecryptMain {
     private ResponseDecryptMain() { }
 
     public static void main(String[] args) {
+        args = new String[1];
+        args[0]="";//响应密文
         if (args.length == 1 && "--help".equals(args[0])) {
             usage();
             return;

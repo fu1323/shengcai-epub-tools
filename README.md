@@ -7,7 +7,6 @@
 | `com.shengcai.tools.ResponseDecryptMain` | 抓到的 Base64 响应体 | 解密后的 UTF-8 JSON |
 | `com.shengcai.tools.EpubDecryptMain` | 原始 EPUB、书籍 key、iv | 解密章节后的新 EPUB |
 
-源码只使用 JDK 自带 API，没有第三方依赖。JAR 已按 Java 8 API/字节码编译，在 OpenJDK 17.0.20 上验证。可使用 Java 8 或更新版本运行；自行编译需要 JDK。
 
 ## 1. 直接运行随附 JAR
 
@@ -16,7 +15,6 @@
 ### 解响应
 
 ```bash
-java -cp target/shengcai-epub-tools-1.0.0.jar com.shengcai.tools.ResponseDecryptMain "6/TvC9WFRwnJWb54RId9J8+12eJLEPEhD4kR4NOnDRJXjshp1H3m/PzrEYTmBHFSHa85BwUkum69wnsIwODx7Q=="
 ```
 
 输出：
@@ -28,13 +26,11 @@ java -cp target/shengcai-epub-tools-1.0.0.jar com.shengcai.tools.ResponseDecrypt
 也可以从文件读取；加第二个参数会同时保存 JSON：
 
 ```bash
-java -cp target/shengcai-epub-tools-1.0.0.jar com.shengcai.tools.ResponseDecryptMain @examples/response.b64 response.json
 ```
 
 或者从标准输入读取：
 
 ```bash
-java -cp target/shengcai-epub-tools-1.0.0.jar com.shengcai.tools.ResponseDecryptMain - < examples/response.b64
 ```
 
 传入完整 HTTP 响应的**正文**，不要混入状态行、请求头或 JSON 引号。允许 Base64 中有空格、换行和 BOM。输出文件存在时拒绝覆盖。
@@ -44,7 +40,6 @@ java -cp target/shengcai-epub-tools-1.0.0.jar com.shengcai.tools.ResponseDecrypt
 将原始 EPUB 放在工程目录，或使用它的绝对路径：
 
 ```bash
-java -cp target/shengcai-epub-tools-1.0.0.jar com.shengcai.tools.EpubDecryptMain a4ce98a1a68647db80dfd18694449721.epub decrypted.epub dc891b08f0344a0b 11fbce122f994c93
 ```
 
 路径含空格时，加双引号。上面这组 key/iv 对应本次提供的书；换书时应传入相应响应解出的值。
